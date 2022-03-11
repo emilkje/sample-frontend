@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app.kubernetes.io/instance: guestbook
+  name: guestbook-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: frontend
+            port:
+              number: 80
+        path: /guestbook
+        pathType: Prefix
